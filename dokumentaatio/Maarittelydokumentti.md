@@ -1,6 +1,7 @@
 # Määrittely
 
-Työ toteutetaan javalla ja opinto ohjelma on tietojenkäsittelytieteen kandidaatti.
+Työn Toteutuskieli:  java
+Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti
 
 ## Toteutus
 

@@ -1,5 +1,6 @@
 # Tiralabra2020-NonogramSolver
 
+Tiralabra 2020 projekti. Nonogram solveri joka tutkii eir algoritmien nopeuksia ratkaisemaan erilaisia nonogrammeja. 
 
 ## Dokumentaatio
 
