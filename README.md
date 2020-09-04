@@ -3,7 +3,7 @@
 
 ## Dokumentaatio
 
-* [Määrittelydokumentti](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokmentaatio/Määrittelydokumentti.md)
+* [Määrittelydokumentti](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/Maarittelydokumentti.md)
 
 ## Viikkottaiset raportit
 
