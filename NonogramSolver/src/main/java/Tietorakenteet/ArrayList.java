@@ -94,6 +94,35 @@ public class ArrayList<T> implements Iterable<T> {
         
         return valikoko;
     }
+    
+    public boolean isEmpty() {
+        return (index == 0);
+    }
+    
+
+    public boolean sama(ArrayList<T> a) {
+        boolean vali = true;
+        for (int i = 0; i < this.array.length; i++) {
+            if (!(this.array[i] == (a.get(i)))) {
+                vali = false;
+            }
+        }
+        return vali;
+    }
+    
+    @Override
+    public String toString() {
+        String palaute = "(";
+        for (int i = 0; i < this.size(); i++) {
+            palaute = palaute + array[i];
+            if (i+1 != this.size()) {
+                palaute = palaute + ", ";
+            }
+        }
+        palaute = palaute + ")";
+        return palaute;
+    }
+            
 
     @Override
     public Iterator<T> iterator() {
@@ -113,6 +142,8 @@ public class ArrayList<T> implements Iterable<T> {
         };
         return it;
     }
+
+
 
 
 }

@@ -10,9 +10,9 @@ public class Peli {
     Integer SarakkeidenMaara;
     
     
-    public Peli(String rivit, String sarakkeet) {
+    public Peli(String sarakkeet, String rivit) {
         // peliä kutsutaan Stringeillä muodossa (3,1/0/1,1/0/0) jossa 
-        // "," erotetaan jos rivillä on eri saarekkeita ja "/" merkillä 
+        // "," erotetaan jos rivillä on monia saaria ja "/" merkillä 
         // erotetaan rivit. Setteri taas muodostaa luokat "Rivit" ja "Sarakkeet" 
         // joita eri ratkojat käyttävät myöhemmin. 
 
@@ -87,4 +87,17 @@ public class Peli {
         return SarakkeidenMaara;
     }
     
+    @Override
+    public String toString() {
+        String palaute = "";
+        palaute = palaute + "Rivit: \n";
+        for (ArrayList<Integer> Rivit1 : Rivit) {
+            palaute = palaute + Rivit1.toString() + "\n";
+        }
+        palaute = palaute + "Sarakkeet: \n";
+        for (ArrayList<Integer> Sarakkeet1 : Sarakkeet) {
+            palaute = palaute + Sarakkeet1.toString() + "\n";
+        }
+        return palaute;
+    }
 }

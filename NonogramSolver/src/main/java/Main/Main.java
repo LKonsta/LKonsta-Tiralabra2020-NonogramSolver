@@ -9,9 +9,8 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Peli uusiPeli = new Peli("1,2/1/0/0", "1/1/1/1");
+        Peli uusiPeli = new Peli("2/1,2/1,2/3/4", "1/5/2/4/2,1");
         Solver ratkoja = new Solver(uusiPeli);
-        
     }
 
     
