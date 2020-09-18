@@ -5,14 +5,16 @@
  */
 package AlgoritmitTest;
 
-
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 /**
  *
  * @author khlehto
  */
 public class MainTest {
     
-    @MainTest
+    @Test
     public void SimppeliTest() {
         Assert.assertEquals();
     }
