@@ -19,3 +19,4 @@
 * tehdä paremmat testaukset
 * jonkin lainen ui johon voi kirjoittaa eri nonogrammeja ja solveri kertoo kuinka kauan ratkaisuissa kestää
 
+Aikaa käyetty: 20 tuntia
