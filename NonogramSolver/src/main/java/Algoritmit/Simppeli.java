@@ -68,7 +68,7 @@ public class Simppeli {
             boolean[] saratOikein = new boolean[kentta.getLeveys()];
 
             for (int i = 0; i < rivit.length; i++) {
-                ArrayList<Integer> Saaret = new ArrayList<>();
+                ArrayList<Integer> Saaret = new ArrayList<Integer>();
                 Integer koko = 0;
                 for (int k = 0; k < kentta.getLeveys(); k++) {
                     if (kentta.getKohta(i, k) == 0 && koko > 0) {
@@ -89,7 +89,7 @@ public class Simppeli {
             }
 
             for (int i = 0; i < sarakkeet.length; i++) {
-                ArrayList<Integer> Saaret = new ArrayList<>();
+                ArrayList<Integer> Saaret = new ArrayList<Integer>();
                 Integer koko = 0;
                 for (int k = 0; k < kentta.getKorkeus(); k++) {
                     if (kentta.getKohta(k, i) == 0 && koko > 0) {
@@ -110,7 +110,7 @@ public class Simppeli {
             }
 
             if (peliloppui(rivitOikein, saratOikein)) {
-                ArrayList<Integer> koordinaatit = new ArrayList<>();
+                ArrayList<Integer> koordinaatit = new ArrayList<Integer>();
                 for (int i = 0; i < kentta.getLeveys(); i++) {
                     for (int j = 0; j < kentta.getKorkeus(); j++) {
                         if (kentta.getKohta(j, i) == 1) {

@@ -36,9 +36,9 @@ public class Peli {
         
         for (int i = 0; i < Maara; i++) {
             if (index == 1) {
-                Rivit[i] = new ArrayList<>();
+                Rivit[i] = new ArrayList<Integer>();
             } else {
-                Sarakkeet[i] = new ArrayList<>();
+                Sarakkeet[i] = new ArrayList<Integer>();
             }
             String[] valinumero = valinumerot[i].split(",");
             Integer[] numero = new Integer[valinumero.length];

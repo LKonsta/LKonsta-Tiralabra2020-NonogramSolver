@@ -44,33 +44,6 @@ public class ArrayList<T> implements Iterable<T> {
         }
     }
     
-    public void addFirst(T a) {
-        if (koko <= index) {
-            T[] valiArray = (T[]) new Object[koko * 2];
-            
-            valiArray[0] = a;
-            for (int i = 0; i < array.length; i++) {
-                valiArray[i+1] = array[i];
-            }
-
-            array = valiArray;
-            koko *= 2;
-
-        }
-        else {
-            T[] valiArray = (T[]) new Object[koko+1];
-
-            valiArray[0] = a;
-            for (int i = 0; i < array.length; i++) {
-                valiArray[i + 1] = array[i];
-            }
-
-            array = valiArray;
-            
-            index++;
-        }
-    }
-    
     public T get(int i) {
         if (i < index && i >= 0) {
             return array[i];
@@ -110,6 +83,42 @@ public class ArrayList<T> implements Iterable<T> {
         return vali;
     }
     
+    public void copy(ArrayList<T> list) {
+        T[] valiArray = (T[]) new Object[list.getKoko()];
+            
+        for (int i = 0;i < array.length; i++) {
+            valiArray[i] = list.get(i);
+        }
+           
+        array = valiArray;
+        koko = list.getKoko();
+        index = list.size();
+    }
+    
+    public void flip() {
+        int size = this.size();
+
+        T[] valiArray = (T[]) new Object[this.koko];
+
+        for (int i = 0;i < size; i++) {
+            T vali = array[i];
+            valiArray[i] = array[size-1-i];
+            valiArray[size-1-i] = vali;
+        }
+            
+        array = valiArray;
+    }
+    
+    public boolean contains(T i) {
+        boolean totta = false;
+        for (int j = 0; j < index; j++) {
+            if (array[j] == i) {
+                totta = true;
+            }
+        }
+        return totta;
+    }
+    
     @Override
     public String toString() {
         String palaute = "(";
@@ -122,28 +131,30 @@ public class ArrayList<T> implements Iterable<T> {
         palaute = palaute + ")";
         return palaute;
     }
-            
+
+    private int getKoko() {
+        return koko;
+    }
 
     @Override
     public Iterator<T> iterator() {
-        Iterator<T> it = new Iterator<T>()  {
+        Iterator<T> it = new Iterator<T>() {
             private int i = 0;
-            
+
             @Override
-            public boolean hasNext()   {
+            public boolean hasNext() {
                 return i < index;
             }
-            
+
             @Override
-            public T next()   {
+            public T next() {
                 return array[i++];
             }
-            
+
         };
         return it;
     }
+    
 
-
-
-
+    
 }

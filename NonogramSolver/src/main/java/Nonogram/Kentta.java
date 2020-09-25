@@ -44,7 +44,8 @@ public class Kentta {
     public void setKohta(int i, int j, int k) {
         if (k == 1 && alue[i][j] == 0) {
             ykkoset++;
-        } else if (alue[i][j] == 1 && k == 0) {
+        } 
+        else if (alue[i][j] == 1 && k == 0) {
             ykkoset--;
         }
         alue[i][j] = k;
@@ -58,7 +59,12 @@ public class Kentta {
             for (int j = 0; j < alue[i].length; j++) {
                 palaute = palaute + alue[i][j];
             }
-            palaute += "]\n";
+            if (i+1==alue.length) {
+                palaute += "]";
+            } else {
+                palaute += "]\n";
+            }
+            
         }
         return palaute;
     }
