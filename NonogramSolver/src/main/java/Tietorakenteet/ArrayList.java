@@ -119,12 +119,30 @@ public class ArrayList<T> implements Iterable<T> {
         return totta;
     }
     
+    public void remove(T r) {
+        for (int i = 0; i < koko; i++) {
+            if (array[i] == r) {
+                for (int j = i; j < koko-1; j++) {
+                    array[j] = array[j+1];
+                }
+                index--;
+            }
+        }
+    }
+    
+    public void removeAll() {
+        for (int i = 0; i < koko; i++) {
+            array[i] = null;
+        }
+        index = 0;
+    }
+    
     @Override
     public String toString() {
         String palaute = "(";
-        for (int i = 0; i < this.size(); i++) {
+        for (int i = 0; i < index; i++) {
             palaute = palaute + array[i];
-            if (i+1 != this.size()) {
+            if (i+1 != index) {
                 palaute = palaute + ", ";
             }
         }
@@ -154,6 +172,10 @@ public class ArrayList<T> implements Iterable<T> {
         };
         return it;
     }
+
+
+
+
     
 
     

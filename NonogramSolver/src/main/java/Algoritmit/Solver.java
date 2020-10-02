@@ -7,7 +7,8 @@ import Algoritmit.Simppeli;
 public class Solver {
 
     public Solver(Peli uusiPeli) {
-        Simppeli simppeli = new Simppeli(uusiPeli);
+//        Simppeli simppeli = new Simppeli(uusiPeli);
+        LogicalSolver viisaampi = new LogicalSolver(uusiPeli);
     }
 
     

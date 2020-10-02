@@ -6,11 +6,11 @@ public class Kentta {
     private Integer leveys;
     private Integer ykkoset;
     
-    public Kentta(Integer leveys, Integer korkeus) {
-        this.alue = new Integer[leveys][korkeus];
+    public Kentta(Integer l, Integer k) {
+        this.alue = new Integer[l][k];
 
-        this.korkeus = leveys;
-        this.leveys = korkeus;
+        this.korkeus = k;
+        this.leveys = l;
         ykkoset = 0;
         for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
