@@ -1,11 +1,22 @@
 package Nonogram;
 
+/**
+ * kenttä jolla peliä pelataan
+ *
+ */
 public class Kentta {
+    
     private Integer[][] alue;
     private Integer korkeus;
     private Integer leveys;
     private Integer ykkoset;
     
+    /**
+     * kenttä luodaan korkeudella ja leveydellä. kenttä myös pohjustetaan nollilla.
+     *
+     * @param l leveys
+     * @param k korkeus
+     */
     public Kentta(Integer l, Integer k) {
         this.alue = new Integer[l][k];
 
@@ -41,6 +52,13 @@ public class Kentta {
     public int getKohta(int i, int j) {
         return alue[i][j];
     }
+    
+    /**
+     * 
+     * @param i x koordinaatti
+     * @param j y koordinaatti
+     * @param k numero joka asetetaan x ja y koordinaatteihin
+     */
     public void setKohta(int i, int j, int k) {
         if (k == 1 && alue[i][j] == 0) {
             ykkoset++;

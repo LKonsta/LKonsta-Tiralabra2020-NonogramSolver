@@ -4,21 +4,23 @@ import Nonogram.Kentta;
 import Nonogram.Peli;
 import Tietorakenteet.ArrayList;
 import java.util.Objects;
-
+/**
+ * Simppeli nonogram solveri. Tämä ratkaisee nonogrammit rekursiolla joten se on todella hidas.
+ * pystyy juuri ja juuri normaaliin aikaan ratkoa 5x5 kokoiset nonogrammit.
+ *
+ */
 public class Simppeli {
 
     private Kentta kentta;
-//    private Integer[][] haamu;
     static ArrayList<Integer>[] rivit;
     static ArrayList<Integer>[] sarakkeet;
     static Integer pisteet;
     
     /**
-     * 
+     * Ennen rekursion aloittamista peli tekee itselleen tarpeelliset setupit.
      * @param peli 
      */
     public Simppeli(Peli peli) {
-//        this.haamu = new Integer[peli.getRivienMaara()][peli.getSarakkeidenMaara()];
         Kentta valikentta = new Kentta(peli.getRivienMaara(), peli.getSarakkeidenMaara());
         rivit = peli.getRivit();
         sarakkeet = peli.getSarakkeet();
@@ -48,13 +50,12 @@ public class Simppeli {
             pisteet = RiviPisteet;
             SimppeliRekursio(valikentta, -1, 0);
         }
-        System.out.println(kentta);
-//        System.out.println(getHaamu());
     }
     
     /**
+     * Rekursiivinen käsky.
      * 
-     * @param kentta
+     * @param kentta tieto tämän hetkisestä kentästä
      * @param x
      * @param y 
      */
@@ -62,7 +63,6 @@ public class Simppeli {
         if (this.kentta != null) {
             return;
         }
-//        addHaamu(x, y);
         if (Objects.equals(kentta.getYkkoset(), pisteet)) {
             boolean[] rivitOikein = new boolean[kentta.getKorkeus()];
             boolean[] saratOikein = new boolean[kentta.getLeveys()];
@@ -142,9 +142,10 @@ public class Simppeli {
     }
 
     /**
-     * 
-     * @param rivit
-     * @param sarat
+     * Peli loppui kun rekursiosta löydetään yksi ratkaisu joka täsmää nonogrammiin.
+     * tätä testataan katsomalla jokainen rivi ja sarake läpi ja katsotaan onko siinnä saman verran ja oikean kokoisia saaria.
+     * @param rivit lista riveistä ja siitä onke ne täsmääviä
+     * @param sarat lista sarakkeista ja siitä onko ne täsmääviä
      * @return 
      */
     private boolean peliloppui(boolean[] rivit, boolean[] sarat) {
@@ -161,27 +162,6 @@ public class Simppeli {
         return true;
     }
 
-//    public void addHaamu(int i, int j) {
-//        if (i < 0) {
-//            return;
-//        }
-//        if (haamu[i][j] == null) {
-//            haamu[i][j] = 1;
-//        }
-//        haamu[i][j]++;
-//    }
-//
-//    public String getHaamu() {
-//        String palaute = "";
-//        for (Integer[] haamu1 : haamu) {
-//            palaute += "[";
-//            for (Integer item : haamu1) {
-//                palaute = palaute + item + ", ";
-//            }
-//            palaute += "]\n";
-//        }
-//        return palaute;
-//    }
     /**
      * 
      * @param k 
@@ -192,6 +172,16 @@ public class Simppeli {
             valikentta.setKohta(k.get(i), k.get(i + 1), 1);
         }
         this.kentta = valikentta;
+    }
+
+    public Integer[][] getKentta() {
+        Integer[][] palaute = new Integer[kentta.getLeveys()][kentta.getKorkeus()];
+        for (int i = 0; i < kentta.getKorkeus(); i++) {
+            for (int j = 0; j < kentta.getLeveys(); j++) {
+                palaute[j][i] = kentta.getKohta(j,i);
+            }
+        }
+        return palaute;
     }
 
 }

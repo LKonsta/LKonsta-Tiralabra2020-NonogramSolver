@@ -9,24 +9,30 @@ public class Peli {
     ArrayList<Integer>[] Sarakkeet;
     Integer SarakkeidenMaara;
     
-    
+    /**
+     * peliä kutsutaan Stringeillä muodossa (3,1/0/1,1/0/0). jossa 
+     * "," erotetaan jos rivillä on monia saaria ja "/" merkillä 
+     * erotetaan rivit. Setteri taas muodostaa luokat "Rivit" ja "Sarakkeet" 
+     * joita eri ratkojat käyttävät myöhemmin. 
+     * @param sarakkeet
+     * @param rivit 
+     */
     public Peli(String sarakkeet, String rivit) {
-        // peliä kutsutaan Stringeillä muodossa (3,1/0/1,1/0/0) jossa 
-        // "," erotetaan jos rivillä on monia saaria ja "/" merkillä 
-        // erotetaan rivit. Setteri taas muodostaa luokat "Rivit" ja "Sarakkeet" 
-        // joita eri ratkojat käyttävät myöhemmin. 
-
-        Setteri(rivit, 1);
-        Setteri(sarakkeet, 0);
+        Setteri(rivit, true);
+        Setteri(sarakkeet, false);
         
     }
-    
-    private void Setteri(String Numerot, Integer index) {
+    /**
+     * Setteri muuttaa String muodossa olevan tiedon taulukko Arraylistiin osta sitä on helpompi käsitellä.
+     * @param Numerot lista saarista String muodossa
+     * @param index tieto onko kyseessä rivit vai sarakkeet
+     */
+    private void Setteri(String Numerot, Boolean index) {
         
         String[] valinumerot = Numerot.split("/");
         Integer Maara = valinumerot.length;
         
-        if (index == 1) {
+        if (index) {
             Rivit = new ArrayList[Maara];
             RivienMaara = Maara;
         } else {
@@ -35,7 +41,7 @@ public class Peli {
         }
         
         for (int i = 0; i < Maara; i++) {
-            if (index == 1) {
+            if (index) {
                 Rivit[i] = new ArrayList<Integer>();
             } else {
                 Sarakkeet[i] = new ArrayList<Integer>();
@@ -49,14 +55,14 @@ public class Peli {
             }
 //            System.out.println(numero.length + " " + numero[0] + " " + valinumero[0] + " " + Numerot);
             if (numero.length == 0) {
-                if (index == 1) {
+                if (index) {
                     Rivit[i].add(0);
                 } else {
                     Sarakkeet[i].add(0);
                 }
             }
 
-            if (index == 1) {
+            if (index) {
                 Rivit[i].addAll(numero);
             } else {
                 Sarakkeet[i].addAll(numero);
