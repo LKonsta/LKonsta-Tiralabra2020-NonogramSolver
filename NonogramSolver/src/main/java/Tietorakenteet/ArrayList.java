@@ -130,6 +130,13 @@ public class ArrayList<T> implements Iterable<T> {
         }
     }
     
+    public void removeFirst() {
+        for (int j = 0; j < koko - 1; j++) {
+            array[j] = array[j + 1];
+        }
+        index--;
+    }
+    
     public void removeAll() {
         for (int i = 0; i < koko; i++) {
             array[i] = null;
@@ -168,15 +175,9 @@ public class ArrayList<T> implements Iterable<T> {
             public T next() {
                 return array[i++];
             }
-
         };
         return it;
     }
 
 
-
-
-    
-
-    
 }

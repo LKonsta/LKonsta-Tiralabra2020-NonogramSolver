@@ -27,6 +27,11 @@ public class Solver {
         Ratkaisu = s.getKentta();
     }
     
+    public void permutaatio() {
+        PermutaatioSolver permut = new PermutaatioSolver(p);
+        Ratkaisu = permut.getKentta();
+    }
+    
     /**
      * Muuttaa pelistä saadun kentän String muotoon
      * @return valmis kenttä

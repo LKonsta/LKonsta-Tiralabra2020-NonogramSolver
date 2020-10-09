@@ -69,6 +69,18 @@ public class Kentta {
         alue[i][j] = k;
     }
     
+    public Integer[] getRivi(int i) {
+        return alue[i];
+    }
+    
+    public Integer[] getSarake(int i) {
+        Integer[] palaute = new Integer[alue.length];
+        for (int j = 0; j < alue.length; j++) {
+            palaute[j] = alue[j][i];
+        }
+        return palaute;
+    }
+    
     @Override
     public String toString() {
         String palaute = "";
@@ -86,6 +98,8 @@ public class Kentta {
         }
         return palaute;
     }
+
+    
 
 
 }

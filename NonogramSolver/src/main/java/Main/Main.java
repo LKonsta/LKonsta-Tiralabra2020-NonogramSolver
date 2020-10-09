@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         
         Peli uusiPeli = new Peli("2/1,2/1,2/3/4", "1/5/2/4/2,1");
+        Peli per = new Peli("5/2,2/1,1/2,2/5","5/2,2/1,1/2,2/5");
         
         Peli peli2 = new Peli("3/2,1/3,2/2,2/6/1,5/6/1/2", "1,2/3,1/1,5/7,1/5/3/4/3");
         Peli peli3 = new Peli("2/2/2/4/2/2","0/1/6/6/1/0/0");
@@ -22,8 +23,8 @@ public class Main {
         Peli omena = new Peli("4/6/2,3/2/3,1,3/1,5,1/1,1/1,2,1/1,1,1/1,1/1,1/1,1/1,1/2,1,2/3,3","5/1,2/1,1,1/1,2,2/1,2,1/2,1,1/1,3,1/2,1,1/3,2,1/3,1,2/3,1,1/1,1,2/5");
         Peli vene = new Peli("1,3/2,2/2,3/2,1,2/1,3/2,3/2,4/3,4/4,5/5,5/3,6/2,1,1/12/8/15","1,1/2,1,1/2,1,2,1/2,2,1,1/4,3/6,3/12/2,3/15/1,9,3/1,7,3/5,3/3,1,1/1,1,1/1");
         
-        Solver ratkoja = new Solver(uusiPeli);
-        ratkoja.viisaampi();
+        Solver ratkoja = new Solver(per);
+        ratkoja.permutaatio();
         System.out.println(ratkoja.getRatkaisu());
 
     }

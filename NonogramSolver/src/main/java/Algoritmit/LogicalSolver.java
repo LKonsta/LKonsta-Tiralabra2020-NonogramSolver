@@ -11,8 +11,6 @@ public class LogicalSolver {
     static ArrayList<Integer>[] rivit;
     static ArrayList<Integer>[] sarakkeet;
     static Integer pisteet;
-    Integer[] taulukko;
-    static ArrayList<Integer> oikeatSaaret;
     private ArrayList<Integer>[][][] mahdolliset;
     /**
      * Looginen solveri. 
@@ -56,6 +54,7 @@ public class LogicalSolver {
                     saariTestaus(i, false);
                     mahdottomienPoisto(i, false);
                 }
+                mahdollisetToString();
 //                
                 System.out.println(kentta); 
                 System.out.println("--------------------");
