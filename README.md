@@ -2,7 +2,7 @@
 
 Tiralabra 2020 projekti. Nonogram solveri joka tutkii eir algoritmien nopeuksia ratkaisemaan erilaisia nonogrammeja. 
 
-Tällä hetkellä palautuksena on version jossa on keskeneräinen permutaatio solveri, joten sen osan koodi ei vielä toimi kunnolla
+Valitettavasti en vieläkään olen saanut mitään konreettista koodia toimimaan molemmat permutaatio solveri ja logical solveri ovat keskeneräisiä.
 
 ## Dokumentaatio
 
@@ -16,3 +16,5 @@ Tällä hetkellä palautuksena on version jossa on keskeneräinen permutaatio so
 * [Viikko 3](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/viikko_raportti_3.md)
 * [Viikko 4](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/viikko_raportti_4.md)
 * [Viikko 5](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/viikko_raportti_5.md)
+* [Viikko 6](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/viikko_raportti_6.md)
+

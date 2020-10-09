@@ -25,31 +25,35 @@ public class PermutaatioSolver {
         boolean muutosta = true;
         while (muutosta) {
             muutosta = false;
-            for (int i = 0; i < k.getLeveys(); i++) {
-                Integer[] rivi = ratko_linja(i, sarakkeet[i], k.getRivi(i));
+            for (int i = 0; i < k.getKorkeus(); i++) {
+//                System.out.println(Arrays.toString(rivit));
+//                System.out.println(i + k.getKorkeus());
+                Integer[] rivi = ratko_linja(i, rivit[i], k.getRivi(i));
                 if (rivi != null) {
                     for (int j = 0; j < rivi.length; j++) {
-                        if (rivi[j] == 1 && k.getKohta(i, j) != 1) {
-                            k.setKohta(i, j, 1);
+                        System.out.println(rivi.length);
+                        if (rivi[j] == 1 && k.getKohta(j, i) != 1) {
+                            k.setKohta(j, i, 1);
                             muutosta = true;
                         }
-                        if (rivi[j] == 2 && k.getKohta(i, j) != 2) {
-                            k.setKohta(i, j, 2);
+                        if (rivi[j] == 2 && k.getKohta(j, i) != 2) {
+                            k.setKohta(j, i, 2);
                             muutosta = true;
                         }
                     }
                 }
             }
-            for (int i = 0; i < k.getKorkeus(); i++) {
-                Integer[] sarake = ratko_linja(i, rivit[i], k.getSarake(i));
+            for (int i = 0; i < k.getLeveys(); i++) {
+                Integer[] sarake = ratko_linja(i, sarakkeet[i], k.getSarake(i));
                 if (sarake != null) {
                     for (int j = 0; j < sarake.length; j++) {
-                        if (sarake[j] == 1 && k.getKohta(j, i) != 1) {
-                            k.setKohta(j, i, 1);
+                        if (sarake[j] == 1 && k.getKohta(i, j) != 1) {
+                            k.setKohta(i, j, 1);
                             muutosta = true;
                         }
-                        if (sarake[j] == 2 && k.getKohta(j, i) != 2) {
-                            k.setKohta(j, i, 2);
+//                        System.out.println("(" + j + ", " + i + ")");
+                        if (sarake[j] == 2 && k.getKohta(i, j) != 2) {
+                            k.setKohta(i, j, 2);
                             muutosta = true;
                         }
                     }
@@ -65,6 +69,7 @@ public class PermutaatioSolver {
         permutaatiot(saaret, linja);
         for (Integer[] per : lista_permuista) {
             boolean sama = true;
+//            System.out.println(linja.length);
             for (int j = 0; j < linja.length; j++) {
                 if (!per[j].equals(linja[j])) {
                     sama = false;
@@ -74,7 +79,9 @@ public class PermutaatioSolver {
             if (!sama) {
                 toimivat_rivit.add(per);
             }
+            
         }
+//        System.out.println(linja.length + "taala");
         Integer[] uusi_rivi = toimivat_rivit.get(0);
         if (toimivat_rivit.size() > 0) {
             toimivat_rivit.removeFirst();
@@ -86,6 +93,8 @@ public class PermutaatioSolver {
                 }
             }
         }
+//        System.out.println("mue ti e");
+//        System.out.println(Arrays.toString(uusi_rivi));
         return uusi_rivi;
     }
 
@@ -94,54 +103,18 @@ public class PermutaatioSolver {
     public void permutaatiot(ArrayList<Integer> saaret, Integer[] linja) {
         lista_permuista = new ArrayList<>();
         lista_permuista.removeAll();
+//        System.out.println(saaret);
         if (saaret.size() > 0 ) {
             Integer[] uusi_linja = new Integer[linja.length];
-            for (int i = 0; i < linja.length; i++) {
+            int max = linja.length - (sum(saaret) + saaret.size()-1);
+//            System.out.println(max);
+            for (int i = 0; i <= max; i++) {
                 lisaaSaaret(saaret, linja, uusi_linja, 0, true);
-                System.out.println("-------------------" + i);
+//                System.out.println("-------------------" + i);
 //                for (int j = 0; j < lista_permuista.size(); j++) {
 //                    System.out.println(Arrays.toString(lista_permuista.get(j)));
 //                }
             }
-        }
-    }
-    
-    private void lisaaSaaret2(ArrayList<Integer> saaret, Integer[] linja, Integer[] uusi, int index, int tyhjia) {
-        ArrayList<Integer> uudet_saaret = new ArrayList<>();
-        uudet_saaret.copy(saaret);
-        Integer[] tama = new Integer[uusi.length];
-        System.arraycopy(uusi, 0, tama, 0, tama.length);
-        int in = index;
-        System.out.println(Arrays.toString(tama) + "ennen");
-        if (in+tyhjia >= linja.length-1) {
-            return;
-        }
-        for (int i = 0; i < tyhjia; i++) {
-            if (linja[in+i] == 2) {
-                return;
-            }
-            tama[in+i] = 1;
-            in++;
-        }
-        for (int i = in; i < uudet_saaret.get(0); i++) {
-            if (linja[i] == 1) {
-                return;
-            }
-            tama[i] = 2;
-            in++;
-        }
-        uudet_saaret.removeFirst();
-        if (uudet_saaret.size() == 0) {
-            for (int i = in; i < linja.length; i++) {
-                tama[i] = 1;
-            }
-            lisaaListaan(tama);
-            System.out.println(Arrays.toString(tama));
-            return;
-        }
-        for (int i = 1; i < 10; i++) {
-            System.out.println("taala");
-            lisaaSaaret2(uudet_saaret, linja, tama, in, i);
         }
     }
     
@@ -150,45 +123,56 @@ public class PermutaatioSolver {
         uudet_saaret.copy(saaret);
         Integer[] tama = new Integer[uusi.length];
         System.arraycopy(uusi, 0, tama, 0, tama.length);
+//        System.out.println(uudet_saaret + " , " + Arrays.toString(linja) + Arrays.toString(tama));
         if (eka && index > 0) {
+//            System.out.println("ekaakaka");
             for (int i = 0; i <= index; i++) {
                 if (linja[i] == 2) {
                     return;
                 }
                 tama[i] = 1;
+                index++;
             }
         }
+//        System.out.println(uudet_saaret);
         if (uudet_saaret.size() > 0) {
-            System.out.println(linja.length - sum(uudet_saaret) + uudet_saaret.size()-1);
             if (index <= linja.length - sum(uudet_saaret) + uudet_saaret.size()-1) {
-                for (int i = index; i <= index+(uudet_saaret.get(0)-1); i++) {
+//                System.out.println(index + " , " + (index+(uudet_saaret.get(0)-1)));
+//                System.out.println(uudet_saaret.size() + " , " + uudet_saaret.get(0));
+                int vali = index;
+                for (int i = vali; i <= vali+(uudet_saaret.get(0)-1); i++) {
+//                    System.out.println("taaala: " + i);
                     if (linja[i] == 1) {
+//                        System.out.println("eiku");
                         return;
                     }
+                    
                     tama[i] = 2;
+                    index++;
+//                    System.out.println(Arrays.toString(tama));
                 }
-                if (index < linja.length) {
-                    if (linja[index] == 2) {
-                        return;
-                    }
-                    tama[index] = 1;
-                }
-                index += uudet_saaret.get(0);
+                
+//                index += uudet_saaret.get(0);
                 uudet_saaret.removeFirst();
+//                System.out.println("taannaa");
                 if (uudet_saaret.size() == 0 && index == linja.length) {
                     lisaaListaan(tama);
                     return;
                 }
-                
-                for (int i = index+1; i < linja.length; i++) {
-                    lisaaSaaret(uudet_saaret, linja, tama, i, false);
+//                if (index < linja.length) {
+//                    if (linja[index] == 2) {
+//                        return;
+//                    }
+//                    tama[index] = 1;
+//                    index++;
+//                }
+                for (int i = index; i < linja.length; i++) {
+                    
                     if (linja[i] == 2) {
                         return;
                     }
                     tama[i] = 1;
-                }
-                if (uudet_saaret.size() == 0) {
-                    lisaaSaaret(uudet_saaret, linja, tama, index, false);
+                    lisaaSaaret(uudet_saaret, linja, tama, i, false);
                 }
             }
         } else {
@@ -200,7 +184,6 @@ public class PermutaatioSolver {
                     tama[i] = 1;
                 }
                 if (uudet_saaret.size() == 0) {
-//                    System.out.println(Arrays.toString(tama) + ", " + Arrays.toString(linja));
                     lisaaListaan(tama);
                 }
             }
@@ -220,7 +203,6 @@ public class PermutaatioSolver {
     }
 
     private void lisaaListaan(Integer[] tama) {
-//        System.out.println(Arrays.toString(tama));
         lista_permuista.add(tama);
     }
 

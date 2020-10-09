@@ -50,6 +50,7 @@ public class Kentta {
         return leveys;
     }
     public int getKohta(int i, int j) {
+        System.out.println("haetaan kohtaa (" + i + ", " + j + ")");
         return alue[i][j];
     }
     
@@ -74,9 +75,11 @@ public class Kentta {
     }
     
     public Integer[] getSarake(int i) {
-        Integer[] palaute = new Integer[alue.length];
-        for (int j = 0; j < alue.length; j++) {
-            palaute[j] = alue[j][i];
+        Integer[] palaute = new Integer[alue[1].length];
+//        System.out.println(alue.length + ", " + alue[1].length + ", " + i);
+        for (int j = 0; j < alue[1].length; j++) {
+//            System.out.println("(" + j + ", " + i + ")");
+            palaute[j] = alue[i][j];
         }
         return palaute;
     }
