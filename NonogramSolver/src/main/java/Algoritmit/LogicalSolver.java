@@ -18,48 +18,50 @@ public class LogicalSolver {
      * 
      * @param peli Nonogram peli joka on annettu Logical Solverille
      */
-    public LogicalSolver(Peli peli) {
+    public LogicalSolver(Peli peli, boolean ratkooko) {
         kentta = new Kentta(peli.getSarakkeidenMaara(), peli.getRivienMaara());
         
         rivit = peli.getRivit();
         sarakkeet = peli.getSarakkeet();
-        setupMahdolliset();
         
-        
-        Integer SarakePisteet = 0;
-        Integer RiviPisteet = 0;
+        if (ratkooko) {
+            setupMahdolliset();
 
-        for (ArrayList<Integer> sarakkeet1 : sarakkeet) {
-            for (int j = 0; j < sarakkeet1.size(); j++) {
-                SarakePisteet += sarakkeet1.get(j);
-            }
-        }
-        for (ArrayList<Integer> rivit1 : rivit) {
-            for (int j = 0; j < rivit1.size(); j++) {
-                RiviPisteet += rivit1.get(j);
-            }
-        }
-        pisteet = SarakePisteet;
-        if (!(SarakePisteet.equals(RiviPisteet))) {
-            System.out.println("mahdoton: " + SarakePisteet + "/" + RiviPisteet);
-        } else {
-            while (pisteet > 0) {
-                for (int i = 0; i < kentta.getKorkeus(); i++) {
-                    tyhjaTestaus(i, true);
-                    saariTestaus(i, true);
-                    mahdottomienPoisto(i, true);
+            Integer SarakePisteet = 0;
+            Integer RiviPisteet = 0;
+
+            for (ArrayList<Integer> sarakkeet1 : sarakkeet) {
+                for (int j = 0; j < sarakkeet1.size(); j++) {
+                    SarakePisteet += sarakkeet1.get(j);
                 }
-                for (int i = 0; i < kentta.getLeveys(); i++) {
-                    tyhjaTestaus(i, false);
-                    saariTestaus(i, false);
-                    mahdottomienPoisto(i, false);
-                }
-                mahdollisetToString();
-//                
-                System.out.println(kentta); 
-                System.out.println("--------------------");
             }
-            
+            for (ArrayList<Integer> rivit1 : rivit) {
+                for (int j = 0; j < rivit1.size(); j++) {
+                    RiviPisteet += rivit1.get(j);
+                }
+            }
+            pisteet = SarakePisteet;
+            if (!(SarakePisteet.equals(RiviPisteet))) {
+                System.out.println("mahdoton: " + SarakePisteet + "/" + RiviPisteet);
+            } else {
+                while (pisteet > 0) {
+                    for (int i = 0; i < kentta.getKorkeus(); i++) {
+                        tyhjaTestaus(i, true);
+                        saariTestaus(i, true);
+                        mahdottomienPoisto(i, true);
+                    }
+                    for (int i = 0; i < kentta.getLeveys(); i++) {
+                        tyhjaTestaus(i, false);
+                        saariTestaus(i, false);
+                        mahdottomienPoisto(i, false);
+                    }
+                    mahdollisetToString();
+    //                
+                    System.out.println(kentta); 
+                    System.out.println("--------------------");
+                }
+
+            }
         }
         
     }

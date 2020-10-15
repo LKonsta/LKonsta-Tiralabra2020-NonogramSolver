@@ -18,17 +18,17 @@ public class Solver {
     }
     
     public void viisaampi() {
-        LogicalSolver v = new LogicalSolver(p);
+        LogicalSolver v = new LogicalSolver(p, true);
         Ratkaisu = v.getKentta();
     }
     
     public void simppeli() {
-        Simppeli s = new Simppeli(p);
+        Simppeli s = new Simppeli(p, true);
         Ratkaisu = s.getKentta();
     }
     
     public void permutaatio() {
-        PermutaatioSolver permut = new PermutaatioSolver(p);
+        PermutaatioSolver permut = new PermutaatioSolver(p, true);
         Ratkaisu = permut.getKentta();
     }
     

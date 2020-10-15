@@ -72,22 +72,22 @@ public class MainTest {
 //        Assert.assertTrue(outputStreamCaptor.toString().contains(ratkaisu));
 //    }
     
-    @Test
-    public void ViisaampiTest2() {
-        Peli uusiPeli = new Peli("3/2,1/3,2/2,2/6/1,5/6/1/2", "1,2/3,1/1,5/7,1/5/3/4/3");
-        Solver ratkoja = new Solver(uusiPeli);
-        ratkoja.viisaampi();
-        System.out.println(ratkoja.getRatkaisu());
-        String ratkaisu = ("[81118888]\n"
-                + "[11818888]\n"
-                + "[81118811]\n"
-                + "[88118811]\n"
-                + "[88111111]\n"
-                + "[18111118]\n"
-                + "[11111188]\n"
-                + "[88881888]\n"
-                + "[88811888]" );
-        Assert.assertTrue(outputStreamCaptor.toString().contains(ratkaisu));
-    }
+//    @Test
+//    public void ViisaampiTest2() {
+//        Peli uusiPeli = new Peli("3/2,1/3,2/2,2/6/1,5/6/1/2", "1,2/3,1/1,5/7,1/5/3/4/3");
+//        Solver ratkoja = new Solver(uusiPeli);
+//        ratkoja.viisaampi();
+//        System.out.println(ratkoja.getRatkaisu());
+//        String ratkaisu = ("[81118888]\n"
+//                + "[11818888]\n"
+//                + "[81118811]\n"
+//                + "[88118811]\n"
+//                + "[88111111]\n"
+//                + "[18111118]\n"
+//                + "[11111188]\n"
+//                + "[88881888]\n"
+//                + "[88811888]" );
+//        Assert.assertTrue(outputStreamCaptor.toString().contains(ratkaisu));
+//    }
     
 }

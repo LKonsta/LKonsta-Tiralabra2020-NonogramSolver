@@ -20,35 +20,37 @@ public class Simppeli {
      * Ennen rekursion aloittamista peli tekee itselleen tarpeelliset setupit.
      * @param peli 
      */
-    public Simppeli(Peli peli) {
+    public Simppeli(Peli peli, boolean ratkooko) {
         Kentta valikentta = new Kentta(peli.getRivienMaara(), peli.getSarakkeidenMaara());
         rivit = peli.getRivit();
         sarakkeet = peli.getSarakkeet();
 
-        for (int i = 0; i < valikentta.getLeveys(); i++) {
-            for (int j = 0; j < valikentta.getKorkeus(); j++) {
-                valikentta.setKohta(j, i, 0);
+        if (ratkooko) {
+            for (int i = 0; i < valikentta.getLeveys(); i++) {
+                for (int j = 0; j < valikentta.getKorkeus(); j++) {
+                    valikentta.setKohta(j, i, 0);
+                }
             }
-        }
 
-        int SarakePisteet = 0;
-        int RiviPisteet = 0;
+            int SarakePisteet = 0;
+            int RiviPisteet = 0;
 
-        for (ArrayList<Integer> sarakkeet1 : sarakkeet) {
-            for (int j = 0; j < sarakkeet1.size(); j++) {
-                SarakePisteet += sarakkeet1.get(j);
+            for (ArrayList<Integer> sarakkeet1 : sarakkeet) {
+                for (int j = 0; j < sarakkeet1.size(); j++) {
+                    SarakePisteet += sarakkeet1.get(j);
+                }
             }
-        }
-        for (ArrayList<Integer> rivit1 : rivit) {
-            for (int j = 0; j < rivit1.size(); j++) {
-                RiviPisteet += rivit1.get(j);
+            for (ArrayList<Integer> rivit1 : rivit) {
+                for (int j = 0; j < rivit1.size(); j++) {
+                    RiviPisteet += rivit1.get(j);
+                }
             }
-        }
-        if (!(SarakePisteet == RiviPisteet)) {
-            System.out.println("mahdoton");
-        } else {
-            pisteet = RiviPisteet;
-            SimppeliRekursio(valikentta, -1, 0);
+            if (!(SarakePisteet == RiviPisteet)) {
+                System.out.println("mahdoton");
+            } else {
+                pisteet = RiviPisteet;
+                SimppeliRekursio(valikentta, -1, 0);
+            }
         }
     }
     

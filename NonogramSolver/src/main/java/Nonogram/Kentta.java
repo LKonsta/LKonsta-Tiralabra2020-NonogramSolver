@@ -17,17 +17,19 @@ public class Kentta {
      * @param l leveys
      * @param k korkeus
      */
-    public Kentta(Integer l, Integer k) {
+    public Kentta(Integer k, Integer l) {
         this.alue = new Integer[l][k];
 
-        this.korkeus = k;
-        this.leveys = l;
+        this.korkeus = l;
+        this.leveys = k;
+//        System.out.println("kenttä alustettaan: " + k + ", " + l);
         ykkoset = 0;
         for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
-                alue[i][j] = 0;
+                alue[j][i] = 0;
             }
         }
+//        System.out.println(this);
     }
     
     public Integer getYkkoset() {
@@ -50,7 +52,7 @@ public class Kentta {
         return leveys;
     }
     public int getKohta(int i, int j) {
-        System.out.println("haetaan kohtaa (" + i + ", " + j + ")");
+//        System.out.println("haetaan kohtaa (" + i + ", " + j + ")");
         return alue[i][j];
     }
     
@@ -75,11 +77,11 @@ public class Kentta {
     }
     
     public Integer[] getSarake(int i) {
-        Integer[] palaute = new Integer[alue[1].length];
-//        System.out.println(alue.length + ", " + alue[1].length + ", " + i);
-        for (int j = 0; j < alue[1].length; j++) {
+        Integer[] palaute = new Integer[korkeus];
+//        System.out.println(palaute.length);
+        for (int j = 0; j < korkeus; j++) {
 //            System.out.println("(" + j + ", " + i + ")");
-            palaute[j] = alue[i][j];
+            palaute[j] = alue[j][i];
         }
         return palaute;
     }
@@ -89,8 +91,8 @@ public class Kentta {
         String palaute = "";
         for (int i = 0; i < alue.length; i++) {
             palaute += "[";
-            for (int j = 0; j < alue[i].length; j++) {
-                palaute = palaute + alue[i][j];
+            for (Integer item : alue[i]) {
+                palaute = palaute + item;
             }
             if (i+1==alue.length) {
                 palaute += "]";
