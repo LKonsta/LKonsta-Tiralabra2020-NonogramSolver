@@ -38,7 +38,7 @@ public class PermutaatioTest {
         testi_array.add(3);
         j.permutaatiot(testi_array, testi_taulukko, testi_taulukko, 0 ,true);
         j.listaToString();
-        String ratkaisu = new String("[[2, 2, 2, 1, 1], [1, 2, 2, 2, 1], [1, 1, 2, 2, 2]]");
+        String ratkaisu = "[[2, 2, 2, 1, 1], [1, 2, 2, 2, 1], [1, 1, 2, 2, 2]]";
         Assert.assertTrue(outputStreamCaptor.toString().contains(ratkaisu));
     }
     
@@ -53,7 +53,7 @@ public class PermutaatioTest {
         testi_array2.add(5);
         j.permutaatiot(testi_array2, testi_taulukko2, testi_taulukko2, 0, true);
         j.listaToString();
-        String ratkaisu2 = new String("[[2, 2, 2, 2, 2, 1, 1, 1], [1, 2, 2, 2, 2, 2, 1, 1], [1, 1, 2, 2, 2, 2, 2, 1]]");
+        String ratkaisu2 = "[[2, 2, 2, 2, 2, 1, 1, 1], [1, 2, 2, 2, 2, 2, 1, 1], [1, 1, 2, 2, 2, 2, 2, 1]]";
         Assert.assertTrue(outputStreamCaptor.toString().contains(ratkaisu2));
     }
     
@@ -68,7 +68,7 @@ public class PermutaatioTest {
         testi_array.add(2);
         j.permutaatiot(testi_array, testi_taulukko, testi_taulukko, 0, true);
         j.listaToString();
-        String ratkaisu2 = new String("[[2, 1, 2, 2, 1], [2, 1, 1, 2, 2], [2, 1, 1, 2, 2], [1, 2, 1, 2, 2]]");
+        String ratkaisu2 = "[[2, 1, 2, 2, 1], [2, 1, 1, 2, 2], [2, 1, 1, 2, 2], [1, 2, 1, 2, 2]]";
         Assert.assertTrue(outputStreamCaptor.toString().contains(ratkaisu2));
     }
 }

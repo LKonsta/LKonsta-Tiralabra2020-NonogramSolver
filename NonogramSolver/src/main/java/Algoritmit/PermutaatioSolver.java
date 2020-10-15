@@ -194,6 +194,7 @@ public class PermutaatioSolver {
                 System.out.print(", ");
             }
         }
+        System.out.println("]");
     }
 
 }
