@@ -1,25 +1,30 @@
 package Nonogram;
 
 import Tietorakenteet.ArrayList;
+import java.util.Objects;
 
 public class Peli {
-    
+    String nimi;
     ArrayList<Integer>[] Rivit;
     Integer RivienMaara;
     ArrayList<Integer>[] Sarakkeet;
     Integer SarakkeidenMaara;
+    public Kentta kentta;
     
     /**
-     * peliä kutsutaan Stringeillä muodossa (3,1/0/1,1/0/0). jossa 
-     * "," erotetaan jos rivillä on monia saaria ja "/" merkillä 
-     * erotetaan rivit. Setteri taas muodostaa luokat "Rivit" ja "Sarakkeet" 
-     * joita eri ratkojat käyttävät myöhemmin. 
+     * peliä kutsutaan Stringeillä muodossa (3,1/0/1,1/0/0).jossa 
+ "," erotetaan jos rivillä on monia saaria ja "/" merkillä 
+ erotetaan rivit. Setteri taas muodostaa luokat "Rivit" ja "Sarakkeet" 
+ joita eri ratkojat käyttävät myöhemmin. 
      * @param sarakkeet
      * @param rivit 
+     * @param nimi 
      */
-    public Peli(String sarakkeet, String rivit) {
+    public Peli(String sarakkeet, String rivit, String nimi) {
+        this.nimi = nimi;
         Setteri(rivit, true);
         Setteri(sarakkeet, false);
+        kentta = new Kentta(SarakkeidenMaara, RivienMaara);
         
     }
     /**
@@ -91,6 +96,83 @@ public class Peli {
     
     public Integer getSarakkeidenMaara() {
         return SarakkeidenMaara;
+    }
+    
+    public Kentta getKentta() {
+        return kentta;
+    }
+    
+    public void setKentta(Kentta k) {
+        kentta = k;
+    }
+    
+    public String getNimi() {
+        return nimi;
+    }
+    
+    public boolean onkoMahdollinen() {
+//        System.out.println(kentta);
+        boolean mahdollinen = true;
+        for (int i = 0; i < RivienMaara; i++) {
+            Integer koko = 0;
+            Integer index = 0;
+            for (int j = 0; j < SarakkeidenMaara; j++) {
+                if (kentta.getKohta(i, j) == 2) {
+                    koko++;
+                }
+                if (kentta.getKohta(i, j) == 1) {
+                    if (koko > 0) {
+                        if (!Objects.equals(Rivit[i].get(index), koko)) {
+                            mahdollinen = false;
+                            break;
+                        } else {
+                            koko = 0;
+                            index++;
+                        }
+                    }
+                }
+                if (koko > 0 && j == SarakkeidenMaara-1) {
+                    if (!Objects.equals(Rivit[i].get(index), koko)) {
+                        mahdollinen = false;
+                        break;
+                    } else {
+                        koko = 0;
+                        index++;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < SarakkeidenMaara; i++) {
+            Integer koko = 0;
+            Integer index = 0;
+            for (int j = 0; j < RivienMaara; j++) {
+                if (kentta.getKohta(j, i) == 2) {
+                    koko++;
+                }
+                if (kentta.getKohta(j, i) == 1) {
+                    if (koko > 0) {
+                        if (!Objects.equals(Sarakkeet[i].get(index), koko)) {
+                            mahdollinen = false;
+                            break;
+                        } else {
+                            koko = 0;
+                            index++;
+                        }
+                    }
+                }
+                if (koko > 0 && j == RivienMaara-1) {
+                    if (!Objects.equals(Sarakkeet[i].get(index), koko)) {
+                        mahdollinen = false;
+                        break;
+                    } else {
+                        koko = 0;
+                        index++;
+                    }
+                }
+            }
+        }
+//        System.out.println("toimiiko: " + mahdollinen);
+        return mahdollinen;
     }
     
     @Override

@@ -1,5 +1,7 @@
 package Nonogram;
 
+import java.util.Arrays;
+
 /**
  * kenttä jolla peliä pelataan
  *
@@ -10,6 +12,7 @@ public class Kentta {
     private Integer korkeus;
     private Integer leveys;
     private Integer ykkoset;
+    private Integer kakkoset;
     
     /**
      * kenttä luodaan korkeudella ja leveydellä. kenttä myös pohjustetaan nollilla.
@@ -102,6 +105,35 @@ public class Kentta {
             
         }
         return palaute;
+    }
+    
+    public Integer getKakkoset() {
+        Integer kakkos = 0;
+        for (int i = 0; i < korkeus; i++) {
+            for (int j = 0; j < leveys; j++) {
+                if (alue[i][j] == 2) {
+                    kakkos++;
+                }
+            }
+        }
+        return kakkos;
+    }
+    
+    public void copy(Kentta k) {
+        Integer[][] uusi = new Integer[k.korkeus][k.leveys];
+        for (int i = 0; i < uusi.length; i++) {
+            for (int j = 0; j < uusi[0].length; j++) {
+                uusi[i][j] = k.getKohta(i, j);
+            }
+        }
+        alue = uusi;
+        korkeus = k.getKorkeus();
+        leveys = k.getLeveys();
+        ykkoset = k.getYkkoset();
+    }
+
+    private Integer[][] getAlue() {
+        return alue;
     }
 
     

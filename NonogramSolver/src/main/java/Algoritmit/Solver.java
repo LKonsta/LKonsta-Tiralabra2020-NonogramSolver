@@ -3,6 +3,7 @@ package Algoritmit;
 import Nonogram.Peli;
 import Tietorakenteet.ArrayList;
 import Algoritmit.Simppeli;
+import Tietorakenteet.TyhjaListaException;
 
 public class Solver {
     
@@ -18,7 +19,7 @@ public class Solver {
     }
     
     public void viisaampi() {
-        LogicalSolver v = new LogicalSolver(p, true);
+        LogicalSolver_retired v = new LogicalSolver_retired(p, true);
         Ratkaisu = v.getKentta();
     }
     
@@ -27,8 +28,8 @@ public class Solver {
         Ratkaisu = s.getKentta();
     }
     
-    public void permutaatio() {
-        PermutaatioSolver permut = new PermutaatioSolver(p, true);
+    public void permutaatio(boolean b) throws TyhjaListaException {
+        PermutaatioSolver permut = new PermutaatioSolver(p, true, b);
         Ratkaisu = permut.getKentta();
     }
     
@@ -52,6 +53,8 @@ public class Solver {
         }
         return palaute;
     }
+
+
 
     
     

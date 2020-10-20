@@ -5,7 +5,7 @@ import Nonogram.Kentta;
 import Nonogram.Peli;
 import Tietorakenteet.ArrayList;
 
-public class LogicalSolver {
+public class LogicalSolver_retired {
     
     private Kentta kentta;
     static ArrayList<Integer>[] rivit;
@@ -18,7 +18,7 @@ public class LogicalSolver {
      * 
      * @param peli Nonogram peli joka on annettu Logical Solverille
      */
-    public LogicalSolver(Peli peli, boolean ratkooko) {
+    public LogicalSolver_retired(Peli peli, boolean ratkooko) {
         kentta = new Kentta(peli.getSarakkeidenMaara(), peli.getRivienMaara());
         
         rivit = peli.getRivit();
