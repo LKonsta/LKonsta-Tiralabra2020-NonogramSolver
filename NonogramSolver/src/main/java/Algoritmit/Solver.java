@@ -9,6 +9,7 @@ public class Solver {
     
     Peli p;
     Integer[][] Ratkaisu;
+    Long kesto;
     
     /**
      * Ratkaisija metodi. tästä voidaan valita kutsutaanko peliin viisaampaa vai simppeliä ratkaisijaa.
@@ -29,8 +30,10 @@ public class Solver {
     }
     
     public void permutaatio(boolean b) throws TyhjaListaException {
+        Long aika = System.currentTimeMillis();
         PermutaatioSolver permut = new PermutaatioSolver(p, true, b);
         Ratkaisu = permut.getKentta();
+        kesto = System.currentTimeMillis()-aika;
     }
     
     /**
@@ -50,7 +53,9 @@ public class Solver {
                 palaute += "]\n";
             }
             
+            
         }
+        palaute += ("\nRatkaisussa kesti: " + kesto + " ms");
         return palaute;
     }
 

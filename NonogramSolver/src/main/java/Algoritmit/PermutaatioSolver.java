@@ -70,7 +70,7 @@ public class PermutaatioSolver {
 
     
     private void BruteForce(Kentta vali, Integer muutosta, boolean piirto) {
-        System.out.println("paastiin");
+        System.out.println("taala");
         Kentta atm = new Kentta(0, 0);
         atm.copy(k);
         int taydet_old = atm.getKakkoset();
@@ -110,6 +110,10 @@ public class PermutaatioSolver {
         boolean muutosta = true;
         arvioiPituudet();
         for (int h = 0; h < 10; h++) {
+            muutosta = true;
+            if (h == 9) {
+                h = 100;
+            }
             while (muutosta) {
                 if (piirto) {
                     System.out.println("---------------------------------------------");
@@ -117,38 +121,39 @@ public class PermutaatioSolver {
                 }
                 muutosta = false;
                 for (int i = 0; i < k.getKorkeus(); i++) {
-//                    if (rivit_pituus[i] <= (h*5)) {
-//                        
-//                    }
-                    Integer[] rivi = ratko_linja(i, rivit[i], k.getRivi(i));
-                    if (rivi != null) {
-                        for (int j = 0; j < rivi.length; j++) {
-                            if (rivi[j] == 1 && k.getKohta(i, j) != 1) {
-                                k.setKohta(i, j, 1);
-                                tyhjat++;
-                                muutosta = true;
-                            }
-                            if (rivi[j] == 2 && k.getKohta(i, j) != 2) {
-                                k.setKohta(i, j, 2);
-                                taydet++;
-                                muutosta = true;
+                    if (rivit_pituus[i] <= (h*5)) {
+                        Integer[] rivi = ratko_linja(i, rivit[i], k.getRivi(i));
+                        if (rivi != null) {
+                            for (int j = 0; j < rivi.length; j++) {
+                                if (rivi[j] == 1 && k.getKohta(i, j) != 1) {
+                                    k.setKohta(i, j, 1);
+                                    tyhjat++;
+                                    muutosta = true;
+                                }
+                                if (rivi[j] == 2 && k.getKohta(i, j) != 2) {
+                                    k.setKohta(i, j, 2);
+                                    taydet++;
+                                    muutosta = true;
+                                }
                             }
                         }
                     }
                 }
                 for (int i = 0; i < k.getLeveys(); i++) {
-                    Integer[] sarake = ratko_linja(i, sarakkeet[i], k.getSarake(i));
-                    if (sarake != null) {
-                        for (int j = 0; j < sarake.length; j++) {
-                            if (sarake[j] == 1 && k.getKohta(j, i) != 1) {
-                                k.setKohta(j, i, 1);
-                                tyhjat++;
-                                muutosta = true;
-                            }
-                            if (sarake[j] == 2 && k.getKohta(j, i) != 2) {
-                                k.setKohta(j, i, 2);
-                                taydet++;
-                                muutosta = true;
+                    if (sarakkeet_pituus[i] <= (h*5)) {
+                        Integer[] sarake = ratko_linja(i, sarakkeet[i], k.getSarake(i));
+                        if (sarake != null) {
+                            for (int j = 0; j < sarake.length; j++) {
+                                if (sarake[j] == 1 && k.getKohta(j, i) != 1) {
+                                    k.setKohta(j, i, 1);
+                                    tyhjat++;
+                                    muutosta = true;
+                                }
+                                if (sarake[j] == 2 && k.getKohta(j, i) != 2) {
+                                    k.setKohta(j, i, 2);
+                                    taydet++;
+                                    muutosta = true;
+                                }
                             }
                         }
                     }
@@ -160,6 +165,11 @@ public class PermutaatioSolver {
     private Integer[] ratko_linja(int i, ArrayList<Integer> saaret, Integer[] linja) throws TyhjaListaException {
         ArrayList<Integer[]> toimivat_rivit = new ArrayList<>();
         permutaatiot(saaret, linja, linja, 0, true);
+//        System.out.print("(");
+//        for (int j = 0; j < lista_permuista.size(); j++) {
+//            System.out.print(Arrays.toString(lista_permuista.get(j)));
+//        }
+//        System.out.println(") , " + i+ saaret + Arrays.toString(linja) + k);
         if (lista_permuista.isEmpty()) {
             throw new TyhjaListaException();
         }

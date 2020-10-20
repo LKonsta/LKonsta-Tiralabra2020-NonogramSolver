@@ -21,7 +21,7 @@ public class MainTest {
     }
     @Test
     public void SimppeliTest1() {
-        Peli uusiPeli = new Peli("0/1/0", "0/1/0");
+        Peli uusiPeli = new Peli("0/1/0", "0/1/0","");
         Solver ratkoja = new Solver(uusiPeli);
         ratkoja.simppeli();
         System.out.println(ratkoja.getRatkaisu());
@@ -33,7 +33,7 @@ public class MainTest {
     
     @Test
     public void SimppeliTest2() {
-        Peli uusiPeli = new Peli("1,1/1,1/1,1/1,1", "1,1/1,1/1,1/1,1");
+        Peli uusiPeli = new Peli("1,1/1,1/1,1/1,1", "1,1/1,1/1,1/1,1","");
         Solver ratkoja = new Solver(uusiPeli);
         ratkoja.simppeli();
         System.out.println(ratkoja.getRatkaisu());
@@ -46,7 +46,7 @@ public class MainTest {
     
     @Test
     public void SimppeliTest3() {
-        Peli uusiPeli = new Peli("2/1,2/1,2/3/4", "1/5/2/4/2,1");
+        Peli uusiPeli = new Peli("2/1,2/1,2/3/4", "1/5/2/4/2,1","");
         Solver ratkoja = new Solver(uusiPeli);
         ratkoja.simppeli();
         System.out.println(ratkoja.getRatkaisu());
