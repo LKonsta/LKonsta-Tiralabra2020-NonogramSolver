@@ -4,11 +4,11 @@ Alkuperäinen ideani oli luoda muutama eri algoritmi nonogrammien ratkomiseen mu
 
 ## Aikajana
 
-1-3 viikot
+### 1-3 viikot
 
 Alotin siis ohjelman suunnittelun ja kirjoittamisen. Sain ensimmäisen 3 viikon aikana toimimaan vain tällähetkelläkin koodista löytyvän simppelin ratkojan joka on erittäin hidas koska toimii rekursiivisesti. En saanut paljoa aikaan näillä viikoilla koska ensinnäkin en ollut koodannut mitään suurta projektia melkein puoleen vuoteen ja oli suuria ongelmia muutenkin testien toimivuuden ja pom tiedoston kanssa muutenkin.
 
-2-4 viikot
+### 2-4 viikot
 
 aloitin rekursiivisen solverin yhteydessä myös suunnittelemaan omaa solveria logical_solver jossa käytin, silloin mielestäni hyvää ideaa jossa käytin alueen kartoittamiseen erittäin monimutkaista taulukkoa muotoa: ArrayList<Integer>[][][]
 
@@ -18,7 +18,7 @@ Saaret olivat taas tiedossa siten että jossain tietyssä kohdassa voi olla vain
 
 Tässä kohtaa koodistani alkoi tulla jopa minulle hieman liian monimutkaista joten päätin alkaa luomaan permutaatiolla toimivaa solveria.
 
-5- viikot
+### 5- viikot
 
 Otin selvää enemmän muista nonogram solvereista ja sain idean permutaatio solveriin. Aika alkoi loppua joten testit ja muu toiminnallisuus kuten visuaalinen käyttöliittymä jäi tekemättä.
 

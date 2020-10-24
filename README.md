@@ -1,13 +1,15 @@
 # Tiralabra2020-NonogramSolver
 
-Tiralabra 2020 projekti. Nonogram solveri joka tutkii eir algoritmien nopeuksia ratkaisemaan erilaisia nonogrammeja. 
+Tiralabra 2020 projekti. Nonogram solveri joka ~~tutkii eri algoritmien nopeuksia ratkaisemaan~~ (ratkoo) erilaisia nonogrammeja. 
 
-Valitettavasti en vieläkään olen saanut mitään konreettista koodia toimimaan molemmat permutaatio solveri ja logical solveri ovat keskeneräisiä.
+Nonogramsolveri joka koostuu yhdestä kunnolla toimivasta (jossa paljon parannettavaa) solverista ja teksti pohjaisesta käyttöliittymästä.
 
 ## Dokumentaatio
 
 * [Määrittelydokumentti](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/Maarittelydokumentti.md)
 * [Testidokumentti](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/Testausdokumentti.md)
+* [Toteutusdokumentti](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/Toteutusdokumentti.md)
+* [Käyttöohjeet](https://github.com/Lkonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/Käyttöohjeet.md)
 
 ## Viikkottaiset raportit
 
