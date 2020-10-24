@@ -10,7 +10,7 @@ Projektia tehdessä sen olen oppinut että testausta ja yksikkötestausta kannat
 
 ## Jacoco report
 
-<img src="https://github.com/LKonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/jacoco_report.png" width="900">
+<img src="https://github.com/LKonsta/Tiralabra2020-NonogramSolver/blob/master/dokumentaatio/jacoco_report_1.png" width="900">
 
 Jacoco reportista näkee että algoritmi osiossa projektia testaus olisi 49% mutta tämä ei täsmää sillä ei toimivaa osiota "Logical_solver" ei ole testattu sillä se ei toimi joten sitä on turha testata.
 
