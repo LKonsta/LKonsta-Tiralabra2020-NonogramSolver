@@ -12,9 +12,15 @@ public class LogicalSolver_retired {
     static ArrayList<Integer>[] sarakkeet;
     static Integer pisteet;
     private ArrayList<Integer>[][][] mahdolliset;
+    
     /**
      * Looginen solveri. 
      * Yrittää ratkoa nonogrammin etsimällä vuorotellen varmat tyhjät ja varmat täydet kohdat sarakkeista ja riveistä.
+     * 
+     * --------------------------------------------------------------------------
+     * VAROITUS: tämä koodi ei toimi 
+     * --------------------------------------------------------------------------
+     * aika loppui kesken yrittää debugata tätä osuutta kun luultavimmin parempi permutaatio solver oli aloitettu.
      * 
      * @param peli Nonogram peli joka on annettu Logical Solverille
      */

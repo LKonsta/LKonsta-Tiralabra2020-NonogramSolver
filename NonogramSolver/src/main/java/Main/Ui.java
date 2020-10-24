@@ -238,6 +238,12 @@ public class Ui {
         return !onko;
     }
     
+    /**
+     * Tarkistaja joka palauttaa kirjoitetusta stringista ensimmäiseksi annetun numeron.
+     * @param nextLine on String jonka käyttäjä on kirjoittanut
+     * @param vaihtoehdot kertoo montako vaihtoehtoa kyseisessä kyselyssä on. esim aluksi vaihtoehtoja on 3 ja seuraavaksi 2 jne.
+     * @return palauttaa numeron joka on stringistä ensimmäinen numero / ensimmäiset 2 numeroa. 
+     */
     private int tarkistaOnkoNumero(String nextLine, int vaihtoehdot) {
         boolean vastattu = false;
         ArrayList<Integer> v = new ArrayList<>();
@@ -261,7 +267,7 @@ public class Ui {
                 
                 if (splitted1.matches("[0-9]+")) {
                     if (ekanumero != -1) {
-                        System.out.println("");
+//                        System.out.println("");
                         String vali = ekanumero + "" + splitted1;
                         ekanumero = Integer.parseInt(vali);
                         break;
@@ -275,7 +281,6 @@ public class Ui {
                 System.out.println("numeroa ei köydetty yritä uudestaa.");
             }
         }
-        System.out.println(ekanumero);
         return ekanumero;
     }
 

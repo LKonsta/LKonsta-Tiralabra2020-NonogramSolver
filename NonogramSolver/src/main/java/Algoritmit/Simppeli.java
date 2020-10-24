@@ -18,7 +18,18 @@ public class Simppeli {
     
     /**
      * Ennen rekursion aloittamista peli tekee itselleen tarpeelliset setupit.
+     * -------------------------------------------------------------------------
+     * VAROITUS: tämä koodi toimii mutta on erittäin hidas
+     * -------------------------------------------------------------------------
+     * Projektin alkuun korjoitin tämän koodin kun se oli ensimmäinen joka tuli 
+     * mieleen.
+     * 
+     * lopputulos olikin sen verran hidas että sitä oli turha verrata 
+     * muihin algoritmeihin.
+     *
+     * 
      * @param peli 
+     * @param ratkooko 
      */
     public Simppeli(Peli peli, boolean ratkooko) {
         Kentta valikentta = new Kentta(peli.getRivienMaara(), peli.getSarakkeidenMaara());
@@ -164,10 +175,6 @@ public class Simppeli {
         return true;
     }
 
-    /**
-     * 
-     * @param k 
-     */
     private void setKentta(ArrayList<Integer> k) {
         Kentta valikentta = new Kentta(sarakkeet.length, rivit.length);
         for (int i = 0; i < k.size(); i += 2) {

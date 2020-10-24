@@ -11,6 +11,10 @@ public class ArrayList<T> implements Iterable<T> {
     int index;
     int koko;
 
+    /**
+     * Arraylistin luulisi olevan aika self explanatory joten javadocceja ei löydy.
+     */
+    
     public ArrayList() {
         array = (T[]) new Object[10];
         

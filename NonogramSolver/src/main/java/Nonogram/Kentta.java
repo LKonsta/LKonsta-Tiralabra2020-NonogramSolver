@@ -74,19 +74,67 @@ public class Kentta {
         }
         alue[i][j] = k;
     }
-    
+    /**
+     * palauttaa halutun rivin.
+     * @param i halutun rivin indexi taulukossa
+     * @return palauttaa yksittäisen Integer[] taulukon.
+     */
     public Integer[] getRivi(int i) {
         return alue[i];
     }
     
+    /**
+     * palauttaa halutun sarakkeen.
+     * @param i halutun sarakkeen indexi talukossa
+     * @return palauttaa yksittäisen Integer[] taulukon.
+     */
     public Integer[] getSarake(int i) {
         Integer[] palaute = new Integer[korkeus];
-//        System.out.println(palaute.length);
         for (int j = 0; j < korkeus; j++) {
-//            System.out.println("(" + j + ", " + i + ")");
             palaute[j] = alue[j][i];
         }
         return palaute;
+    }
+    
+    /**
+     * testi metodi/ metodi jota bruteforce käytää. Tämäkin on huono- /
+     * hidasratkaisu bruteforcen ratkomiseen mutta, kakkos muuttuja mukana
+     * tuominen rekursiivisestikkään ei toiminut joten parempaa ei tule olemaan.
+     *
+     * @return palauttaa tämän hetkiset kakkoset jota kentällä on.
+     */
+    public Integer getKakkoset() {
+        Integer kakkos = 0;
+        for (int i = 0; i < korkeus; i++) {
+            for (int j = 0; j < leveys; j++) {
+                if (alue[i][j] == 2) {
+                    kakkos++;
+                }
+            }
+        }
+        return kakkos;
+    }
+
+    /**
+     * kopio this.kentaksi annetun kentan.
+     *
+     * @param k kentta joka kopiodaan tähän kenttaan.
+     */
+    public void copy(Kentta k) {
+        Integer[][] uusi = new Integer[k.korkeus][k.leveys];
+        for (int i = 0; i < uusi.length; i++) {
+            for (int j = 0; j < uusi[0].length; j++) {
+                uusi[i][j] = k.getKohta(i, j);
+            }
+        }
+        alue = uusi;
+        korkeus = k.getKorkeus();
+        leveys = k.getLeveys();
+        ykkoset = k.getYkkoset();
+    }
+
+    private Integer[][] getAlue() {
+        return alue;
     }
     
     @Override
@@ -106,37 +154,4 @@ public class Kentta {
         }
         return palaute;
     }
-    
-    public Integer getKakkoset() {
-        Integer kakkos = 0;
-        for (int i = 0; i < korkeus; i++) {
-            for (int j = 0; j < leveys; j++) {
-                if (alue[i][j] == 2) {
-                    kakkos++;
-                }
-            }
-        }
-        return kakkos;
-    }
-    
-    public void copy(Kentta k) {
-        Integer[][] uusi = new Integer[k.korkeus][k.leveys];
-        for (int i = 0; i < uusi.length; i++) {
-            for (int j = 0; j < uusi[0].length; j++) {
-                uusi[i][j] = k.getKohta(i, j);
-            }
-        }
-        alue = uusi;
-        korkeus = k.getKorkeus();
-        leveys = k.getLeveys();
-        ykkoset = k.getYkkoset();
-    }
-
-    private Integer[][] getAlue() {
-        return alue;
-    }
-
-    
-
-
 }

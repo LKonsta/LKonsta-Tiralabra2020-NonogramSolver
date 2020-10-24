@@ -28,7 +28,7 @@ public class Peli {
         
     }
     /**
-     * Setteri muuttaa String muodossa olevan tiedon taulukko Arraylistiin osta sitä on helpompi käsitellä.
+     * Setteri muuttaa String muodossa olevan tiedon taulukko Arraylistiin josta sitä on helpompi käsitellä.
      * @param Numerot lista saarista String muodossa
      * @param index tieto onko kyseessä rivit vai sarakkeet
      */
@@ -110,6 +110,12 @@ public class Peli {
         return nimi;
     }
     
+    /**
+     * onkoMahdollinen metodi kutsutaan bruteforce kohdassa ja tarkistetaan onko tämän hetkinen nonogrammi oikea. Eli täsmääkö se siis alkuperäisesti annettuihin saariin.
+     * Tämä metodi toimii vain jos kenttä on täysi eli jos siitä puuttuu pisteitä niin tämä metodi ei toimi.
+     * @return palauttaa joko true tai falsen siitä täsmääkö tämänhetkinen kenttä annettuihin saariin. 
+     */
+    
     public boolean onkoMahdollinen() {
 //        System.out.println(kentta);
         boolean mahdollinen = true;
@@ -171,7 +177,6 @@ public class Peli {
                 }
             }
         }
-//        System.out.println("toimiiko: " + mahdollinen);
         return mahdollinen;
     }
     
